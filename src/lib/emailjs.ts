@@ -2,12 +2,10 @@
 
 import emailjs from "@emailjs/browser";
 
-const EMAILJS_SERVICE_ID =
-  process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_xxxxxxx";
+const EMAILJS_SERVICE_ID = process.env.EMAILJS_SERVICE_ID || "service_xxxxxxx";
 const EMAILJS_TEMPLATE_ID =
-  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_xxxxxxx";
-const EMAILJS_PUBLIC_KEY =
-  process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "xxxxxxxxxxxxxxx";
+  process.env.EMAILJS_TEMPLATE_ID || "template_xxxxxxx";
+const EMAILJS_PUBLIC_KEY = process.env.EMAILJS_PUBLIC_KEY || "xxxxxxxxxxxxxxx";
 
 interface EmailData {
   user_name: string;
