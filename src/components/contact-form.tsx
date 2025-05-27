@@ -46,7 +46,7 @@ export default function ContactForm() {
       message: "",
     },
   });
-  Label;
+
   // Testa a configuração do EmailJS quando o componente monta
   useEffect(() => {
     const isConfigured = testEmailJSConfig();
@@ -59,13 +59,11 @@ export default function ContactForm() {
     let emailSent = false;
     let confirmationSent = false;
     try {
-      // 1. Envia email principal via Resend (para você)
       console.log("Enviando email principal via Resend...");
       await sendEmail(values);
       emailSent = true;
       console.log("Email principal enviado com sucesso");
 
-      // 2. Tenta enviar email de confirmação via EmailJS (para o usuário)
       if (emailJSConfigured) {
         console.log("Tentando enviar confirmação via EmailJS...");
         const confirmationResult = await sendConfirmationEmailJS({
@@ -88,7 +86,6 @@ export default function ContactForm() {
         console.warn("EmailJS não configurado, pulando confirmação");
       }
 
-      // 3. Mostra toast baseado no resultado
       if (emailSent && confirmationSent) {
         toast.success("Mensagem enviada com sucesso!", {
           description:

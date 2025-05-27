@@ -1,3 +1,5 @@
+import spaceX from "../../public/spaceX.jpg";
+
 export const projects = [
   {
     title: "SpaceX",
@@ -8,7 +10,7 @@ export const projects = [
     link: "https://spacex-sooty.vercel.app/",
     repoText: "Repositório",
     repo: "https://github.com/Lu1zFernandes/spacex",
-    image: "/placeholder.svg?height=200&width=400",
+    image: spaceX,
     tags: ["HTML", "CSS", "Sass", "Bootstrap"],
   },
   {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import {
   Card,
   CardContent,
@@ -20,7 +20,7 @@ interface ProjectProps {
     link: string;
     repoText: string;
     repo: string;
-    image?: string;
+    image?: string | StaticImageData;
     tags?: string[];
   };
 }
@@ -29,7 +29,7 @@ export default function ProjectCard({ project }: ProjectProps) {
   return (
     <Card className='overflow-hidden flex flex-col h-full'>
       {project.image && (
-        <div className='relative w-full h-48 overflow-hidden'>
+        <div className='relative h-50 w-[90%] mx-auto overflow-hidden rounded-xl'>
           <Image
             src={project.image || "/placeholder.svg?height=200&width=400"}
             alt={project.title}

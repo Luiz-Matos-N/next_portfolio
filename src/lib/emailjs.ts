@@ -63,14 +63,6 @@ export async function sendConfirmationEmailJS(data: EmailData) {
       return { success: false, error: "Configuração do EmailJS inválida" };
     }
 
-    console.log(
-      "EmailJS: Enviando email de confirmação para:",
-      data.user_email
-    );
-    console.log("EmailJS: Service ID:", EMAILJS_SERVICE_ID);
-    console.log("EmailJS: Template ID:", EMAILJS_TEMPLATE_ID);
-
-    // Prepara os dados do template
     const templateParams = {
       user_name: data.user_name,
       user_email: data.user_email,
@@ -80,8 +72,6 @@ export async function sendConfirmationEmailJS(data: EmailData) {
       reply_to: data.user_email,
       from_name: "Luiz Fernandes - Portfólio",
     };
-
-    console.log("EmailJS: Parâmetros do template:", templateParams);
 
     // Envia o email de confirmação
     const result = await emailjs.send(
