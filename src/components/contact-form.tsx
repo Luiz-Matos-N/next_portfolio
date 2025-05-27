@@ -10,7 +10,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
-import { sendConfirmationEmail, sendEmail } from "@/lib/email";
+import { sendEmail } from "@/lib/email";
+import { sendConfirmationEmailJS } from "@/lib/emailjs";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -50,26 +51,27 @@ export default function ContactForm() {
     try {
       await sendEmail(values);
 
-      try {
-        const confirmationResult = await sendConfirmationEmail(
-          values.email,
-          values.name
-        );
-        if (confirmationResult.success && confirmationResult.message) {
-          console.log(confirmationResult.message);
-        }
-      } catch (confirmationError) {
-        // Se falhar o email de confirmação, não impede o sucesso do principal
-        console.warn(
-          "Email de confirmação não enviado (modo de teste):",
-          confirmationError
-        );
+      const confirmationResult = await sendConfirmationEmailJS({
+        user_name: values.name,
+        user_email: values.email,
+        user_subject: values.subject,
+        message: values.message,
+      });
+
+      if (confirmationResult.success) {
+        toast.success("Mensagem enviada com sucesso!", {
+          description:
+            "Obrigado por entrar em contato. Responderei o mais breve possível.",
+          duration: 6000,
+        });
+      } else {
+        toast.success("Mensagem enviada!", {
+          description:
+            "Sua mensagem foi enviada com sucesso. Responderei o mais breve possível.",
+          duration: 5000,
+        });
       }
 
-      toast.success("Mensagem enviada!", {
-        description:
-          "Obrigado por entrar em contato. Responderei o mais breve possível.",
-      });
       reset();
     } catch (error) {
       toast.error("Erro ao enviar mensagem", {
