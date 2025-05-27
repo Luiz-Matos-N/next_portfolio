@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { sendEmail } from "@/lib/email";
-import { sendConfirmationEmailJS } from "@/lib/emailjs";
+import { sendConfirmationEmailJS, testEmailJSConfig } from "@/lib/emailjs";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -30,6 +30,7 @@ const formSchema = z.object({
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [emailJSConfigured, setEmailJSConfigured] = useState(false);
 
   const {
     register,
@@ -45,26 +46,56 @@ export default function ContactForm() {
       message: "",
     },
   });
+  Label;
+  // Testa a configuração do EmailJS quando o componente monta
+  useEffect(() => {
+    const isConfigured = testEmailJSConfig();
+    setEmailJSConfigured(isConfigured);
+  }, []);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
+
+    let emailSent = false;
+    let confirmationSent = false;
     try {
+      // 1. Envia email principal via Resend (para você)
+      console.log("Enviando email principal via Resend...");
       await sendEmail(values);
+      emailSent = true;
+      console.log("Email principal enviado com sucesso");
 
-      const confirmationResult = await sendConfirmationEmailJS({
-        user_name: values.name,
-        user_email: values.email,
-        user_subject: values.subject,
-        message: values.message,
-      });
+      // 2. Tenta enviar email de confirmação via EmailJS (para o usuário)
+      if (emailJSConfigured) {
+        console.log("Tentando enviar confirmação via EmailJS...");
+        const confirmationResult = await sendConfirmationEmailJS({
+          user_name: values.name,
+          user_email: values.email,
+          user_subject: values.subject,
+          message: values.message,
+        });
 
-      if (confirmationResult.success) {
+        if (confirmationResult.success) {
+          confirmationSent = true;
+          console.log("Email de confirmação enviado com sucesso");
+        } else {
+          console.error(
+            "Falha no email de confirmação:",
+            confirmationResult.error
+          );
+        }
+      } else {
+        console.warn("EmailJS não configurado, pulando confirmação");
+      }
+
+      // 3. Mostra toast baseado no resultado
+      if (emailSent && confirmationSent) {
         toast.success("Mensagem enviada com sucesso!", {
           description:
-            "Obrigado por entrar em contato. Responderei o mais breve possível.",
+            "Você receberá um email de confirmação em breve. Responderei o mais rápido possível!",
           duration: 6000,
         });
-      } else {
+      } else if (emailSent) {
         toast.success("Mensagem enviada!", {
           description:
             "Sua mensagem foi enviada com sucesso. Responderei o mais breve possível.",
