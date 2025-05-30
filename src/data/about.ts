@@ -5,10 +5,10 @@ export const aboutData = {
   title: "Desenvolvedor Full Stack",
   profileImage: profile,
   bio: [
-    "Sou um desenvolvedor Full Stack apaixonado por criar experiências web incríveis e funcionais. Com experiência em diversas tecnologias modernas, busco sempre aprender e me adaptar às novas tendências do mercado.",
-    "Minha jornada na programação começou há alguns anos, quando descobri minha paixão por resolver problemas através do código. Desde então, venho aprimorando minhas habilidades e trabalhando em projetos desafiadores que me permitem crescer como profissional.",
-    "Além do desenvolvimento web, também sou apaixonado por biologia — uma área que sempre me fascinou por sua complexidade e conexão com o mundo real. Esse interesse influencia minha forma de pensar, estimulando a curiosidade, a análise e a busca por soluções criativas.",
-    "Tenho ainda grande interesse em áreas como inteligência artificial e criação de softwares. Acredito que a combinação de habilidades técnicas, criativas e científicas é essencial para criar produtos de qualidade.",
+    "Sou estudante de Engenharia da Computação e estou em constante aprendizado no desenvolvimento de soluções digitais. Tenho interesse em diversas áreas da tecnologia, como desenvolvimento web e de software em geral. Estou sempre buscando evoluir, aprender novas ferramentas e contribuir em projetos que gerem valor real.",
+    "Minha jornada na programação começou há alguns anos, quando descobri minha paixão por resolver problemas através do código. Desde então, venho aprimorando minhas habilidades e trabalhando em projetos pessoais que me permitem crescer como profissional.",
+    "Além do desenvolvimento web e de software, também sou apaixonado por biologia — uma ciência que sempre me fascinou pela sua complexidade, lógica natural e impacto direto no mundo real. Esse interesse influencia minha forma de pensar, despertando curiosidade, capacidade analítica e criatividade na busca por soluções tecnológicas que façam sentido e tenham aplicação prática.",
+    "Meu objetivo é unir o que há de melhor nas áreas de tecnologia e biologia, explorando suas complexidades para desenvolver soluções inovadoras. Acredito que essa combinação pode abrir caminhos para aplicações inteligentes, úteis e impactantes — desde softwares voltados à área da saúde até ferramentas que auxiliem pesquisas e análises biológicas.",
   ],
 
   skills: [

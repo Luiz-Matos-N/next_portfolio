@@ -27,7 +27,7 @@ export default function CertificateCard({ certificate }: CertificateProps) {
           <Calendar className='h-4 w-4' />
           <span>{certificate.date}</span>
         </div>
-        <CardTitle className='line-clamp-2'>{certificate.title}</CardTitle>
+        <CardTitle className='line-clamp-2 pb-1'>{certificate.title}</CardTitle>
         <CardDescription className='line-clamp-3'>
           {certificate.description}
         </CardDescription>

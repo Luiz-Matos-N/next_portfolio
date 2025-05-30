@@ -146,4 +146,32 @@ export const certificates = [
       "Certificado de conclusão do módulo de Object-Oriented Developer pelo curso de Engenharia da Computação da Descomplica Faculdade Digital.",
     link: "https://drive.google.com/file/d/1tQ3mtX6D2BejpHbQ6sMFbslbVcDwrozb/view?usp=sharing",
   },
+  {
+    date: "10 mai 2024",
+    title: "DB Developer",
+    description:
+      "Certificado de conclusão do módulo de DB Developer pelo curso de Engenharia da Computação da Descomplica Faculdade Digital.",
+    link: "https://drive.google.com/file/d/1FTrHAC0cknTfleNKNCXNYYQxxKvvVTbA/view?usp=sharing",
+  },
+  {
+    date: "23 set 2024",
+    title: "Smart Data Structures",
+    description:
+      "Certificado de conclusão do módulo de Smart Data Structures pelo curso de Engenharia da Computação da Descomplica Faculdade Digital.",
+    link: "https://drive.google.com/file/d/1Vmw8cIxsrlchLIbT40w4xoxDVRYV6k2k/view?usp=sharing",
+  },
+  {
+    date: "23 nov 2024",
+    title: "Mobile Developer",
+    description:
+      "Certificado de conclusão do módulo de Mobile Developer pelo curso de Engenharia da Computação da Descomplica Faculdade Digital.",
+    link: "https://drive.google.com/file/d/1KEFOFWgwOGiDm-eRvnmuHRpUOtpk68TG/view?usp=sharing",
+  },
+  {
+    date: "28 mar 2025",
+    title: "Local Area Network",
+    description:
+      "Certificado de conclusão do módulo de Local Area Network pelo curso de Engenharia da Computação da Descomplica Faculdade Digital.",
+    link: "https://drive.google.com/file/d/1o-neeumZ5fucWirHAMdUvsFPwU3E3JOX/view?usp=sharing",
+  },
 ];

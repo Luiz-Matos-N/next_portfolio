@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -5,6 +7,7 @@ import { projects } from "@/data/projects";
 import { certificates } from "@/data/certificates";
 import ProjectCard from "@/components/project-card";
 import CertificateCard from "@/components/certificate-card";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function Home() {
   // Mostrar apenas os 3 projetos mais recentes na página inicial
@@ -20,7 +23,19 @@ export default function Home() {
           <div className='flex flex-col items-center text-center space-y-4'>
             <div className='space-y-2'>
               <h1 className='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl'>
-                Olá, eu sou <span className='text-primary'>Luiz Fernandes</span>
+                <span>Olá, </span>
+                <Typewriter
+                  words={[
+                    "prazer em te conhecer!",
+                    "meu nome é Luiz Fernandes",
+                  ]}
+                  loop={true}
+                  cursor
+                  cursorStyle='_'
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1500}
+                />
               </h1>
               <p className='mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400'>
                 Desenvolvedor Full Stack apaixonado por criar experiências web
