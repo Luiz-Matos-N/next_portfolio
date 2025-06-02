@@ -52,6 +52,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='pt-BR' suppressHydrationWarning>
+      <head>
+        <link rel='icon' href='/vercel.svg' />
+      </head>
       <body className={inter.className} suppressHydrationWarning={true}>
         <ThemeProvider
           attribute='class'
